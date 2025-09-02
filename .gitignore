@@ -1,0 +1,10 @@
+# Ignore Python virtual environments
+to-do_env/
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtualenvs
+.env
+venv/
