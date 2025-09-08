@@ -1,6 +1,8 @@
 # Ignore Python virtual environments
 to-do_env/
-.terraform/
+todo_project\tasks\terraform\.terraform
+todo_project\tasks\terraform\*.tfstate
+todo_project\tasks\terraform\*.tfstate.*
 # Byte-compiled files
 __pycache__/
 *.py[cod]
