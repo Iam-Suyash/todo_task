@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = 'suyashmk/todo_app:v1'
+        CONTAINER_NAME = 'todo-app'
+    }
+
+    stages {
+        stage('Pull Image from DockerHub') {
+            steps {
+                script {
+                    sh "docker pull ${IMAGE_NAME}"
+                }
+            }
+        }
+        stage('Stop & Remove Existing Container') {
+            steps {
+                script {
+                    sh """
+                        docker rm -f ${CONTAINER_NAME} || true
+                    """
+                }
+            }
+        }
+        stage('Run New Container') {
+            steps {
+                script {
+                    sh """
+                        docker run -d --name ${CONTAINER_NAME} -p 8000:8000 ${IMAGE_NAME}
+                    """
+                }
+            }
+        }
+    }
+}
