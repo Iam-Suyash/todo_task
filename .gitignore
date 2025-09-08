@@ -1,6 +1,6 @@
 # Ignore Python virtual environments
 to-do_env/
-
+.terraform/
 # Byte-compiled files
 __pycache__/
 *.py[cod]
